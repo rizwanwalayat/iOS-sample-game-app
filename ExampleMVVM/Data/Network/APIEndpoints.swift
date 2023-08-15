@@ -5,7 +5,7 @@ struct APIEndpoints {
     static func getMovies(with moviesRequestDTO: MoviesRequestDTO) -> Endpoint<MoviesResponseDTO> {
 
         return Endpoint(
-            path: "3/search/movie",
+            path: "games",
             method: .get,
             queryParametersEncodable: moviesRequestDTO
         )
@@ -20,7 +20,8 @@ struct APIEndpoints {
             .element ?? sizes.first!
         
         return Endpoint(
-            path: "t/p/w\(closestWidth)\(path)",
+            path: "\(closestWidth)\(path)",
+            isFullPath: true,
             method: .get,
             responseDecoder: RawDataResponseDecoder()
         )

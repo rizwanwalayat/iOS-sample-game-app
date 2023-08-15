@@ -8,8 +8,8 @@ struct MoviesResponseDTO: Decodable {
         case totalPages = "total_pages"
         case movies = "results"
     }
-    let page: Int
-    let totalPages: Int
+    var page: Int?
+    var totalPages: Int?
     let movies: [MovieDTO]
 }
 
@@ -17,9 +17,9 @@ extension MoviesResponseDTO {
     struct MovieDTO: Decodable {
         private enum CodingKeys: String, CodingKey {
             case id
-            case title
+            case title = "name"
             case genre
-            case posterPath = "poster_path"
+            case posterPath = "background_image"
             case overview
             case releaseDate = "release_date"
         }
@@ -40,8 +40,8 @@ extension MoviesResponseDTO {
 
 extension MoviesResponseDTO {
     func toDomain() -> MoviesPage {
-        return .init(page: page,
-                     totalPages: totalPages,
+        return .init(page: 0,
+                     totalPages: totalPages ?? 1,
                      movies: movies.map { $0.toDomain() })
     }
 }

@@ -9,7 +9,7 @@ final class AppDIContainer {
         let config = ApiDataNetworkConfig(
             baseURL: URL(string: appConfiguration.apiBaseURL)!,
             queryParameters: [
-                "api_key": appConfiguration.apiKey,
+                "key": appConfiguration.apiKey,
                 "language": NSLocale.preferredLanguages.first ?? "en"
             ]
         )

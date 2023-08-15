@@ -1306,8 +1306,8 @@
 		1FA533A7201E1FDE00747E55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				API_BASE_URL = "http://api.themoviedb.org";
-				API_KEY = 2696829a81b1b5827d515ff121700838;
+				API_BASE_URL = "https://api.rawg.io/api";
+				API_KEY = c14361f5ee90432ead709581339d6adc;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -1327,8 +1327,8 @@
 		1FA533A8201E1FDE00747E55 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				API_BASE_URL = "http://api.themoviedb.org";
-				API_KEY = 2696829a81b1b5827d515ff121700838;
+				API_BASE_URL = "https://api.rawg.io/api";
+				API_KEY = c14361f5ee90432ead709581339d6adc;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;

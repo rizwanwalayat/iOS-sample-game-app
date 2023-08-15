@@ -36,8 +36,8 @@ extension MoviesRequestDTO {
 extension MoviesResponseDTO {
     func toEntity(in context: NSManagedObjectContext) -> MoviesResponseEntity {
         let entity: MoviesResponseEntity = .init(context: context)
-        entity.page = Int32(page)
-        entity.totalPages = Int32(totalPages)
+        entity.page = Int32(page ?? 1)
+        entity.totalPages = Int32(totalPages ?? 1)
         movies.forEach {
             entity.addToMovies($0.toEntity(in: context))
         }
