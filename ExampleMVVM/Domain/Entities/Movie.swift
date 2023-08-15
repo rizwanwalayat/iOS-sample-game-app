@@ -11,7 +11,7 @@ struct Movie: Equatable, Identifiable {
     let genre: Genre?
     let posterPath: String?
     let overview: String?
-    let releaseDate: Date?
+    let releaseDate: Int?
 }
 
 struct MoviesPage: Equatable {

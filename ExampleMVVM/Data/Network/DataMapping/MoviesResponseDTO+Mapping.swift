@@ -5,11 +5,11 @@ import Foundation
 struct MoviesResponseDTO: Decodable {
     private enum CodingKeys: String, CodingKey {
         case page
-        case totalPages = "total_pages"
+        case totalPages = "count"
         case movies = "results"
     }
-    var page: Int?
-    var totalPages: Int?
+    var page: Int = 1
+    var totalPages: Int
     let movies: [MovieDTO]
 }
 
@@ -21,7 +21,7 @@ extension MoviesResponseDTO {
             case genre
             case posterPath = "background_image"
             case overview
-            case releaseDate = "release_date"
+            case releaseDate = "metacritic"
         }
         enum GenreDTO: String, Decodable {
             case adventure
@@ -32,7 +32,7 @@ extension MoviesResponseDTO {
         let genre: GenreDTO?
         let posterPath: String?
         let overview: String?
-        let releaseDate: String?
+        let releaseDate: Int?
     }
 }
 
@@ -40,7 +40,7 @@ extension MoviesResponseDTO {
 
 extension MoviesResponseDTO {
     func toDomain() -> MoviesPage {
-        return .init(page: 0,
+        return .init(page: 1,
                      totalPages: totalPages ?? 1,
                      movies: movies.map { $0.toDomain() })
     }
@@ -53,7 +53,7 @@ extension MoviesResponseDTO.MovieDTO {
                      genre: genre?.toDomain(),
                      posterPath: posterPath,
                      overview: overview,
-                     releaseDate: dateFormatter.date(from: releaseDate ?? ""))
+                     releaseDate: releaseDate)
     }
 }
 

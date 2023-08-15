@@ -22,7 +22,7 @@ extension DefaultPosterImagesRepository: PosterImagesRepository {
         completion: @escaping (Result<Data, Error>) -> Void
     ) -> Cancellable? {
         
-        let endpoint = APIEndpoints.getMoviePoster(path: imagePath, width: width)
+        let endpoint = APIEndpoints.getGamePoster(path: imagePath)
         let task = RepositoryTask()
         task.networkTask = dataTransferService.request(
             with: endpoint,

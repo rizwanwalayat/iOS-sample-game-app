@@ -26,4 +26,14 @@ struct APIEndpoints {
             responseDecoder: RawDataResponseDecoder()
         )
     }
+    
+    static func getGamePoster(path: String) -> Endpoint<Data> {
+
+        return Endpoint(
+            path: "\(path)",
+            isFullPath: true,
+            method: .get,
+            responseDecoder: RawDataResponseDecoder()
+        )
+    }
 }

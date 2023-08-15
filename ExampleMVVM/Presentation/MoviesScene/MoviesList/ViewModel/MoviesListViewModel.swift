@@ -59,7 +59,7 @@ final class DefaultMoviesListViewModel: MoviesListViewModel {
     let error: Observable<String> = Observable("")
     var isEmpty: Bool { return items.value.isEmpty }
     let screenTitle = NSLocalizedString("Games", comment: "")
-    let emptyDataTitle = NSLocalizedString("Search results", comment: "")
+    let emptyDataTitle = NSLocalizedString("No game has been searched", comment: "")
     let errorTitle = NSLocalizedString("Error", comment: "")
     let searchBarPlaceholder = NSLocalizedString("Search for the games", comment: "")
 
@@ -89,7 +89,7 @@ final class DefaultMoviesListViewModel: MoviesListViewModel {
     }
 
     private func resetPages() {
-        currentPage = 0
+        currentPage = 1
         totalPageCount = 1
         pages.removeAll()
         items.value.removeAll()
@@ -122,7 +122,7 @@ final class DefaultMoviesListViewModel: MoviesListViewModel {
     private func handle(error: Error) {
         self.error.value = error.isInternetConnectionError ?
             NSLocalizedString("No internet connection", comment: "") :
-            NSLocalizedString("Failed loading movies", comment: "")
+            NSLocalizedString("Problem loading games", comment: "")
     }
 
     private func update(movieQuery: MovieQuery) {
